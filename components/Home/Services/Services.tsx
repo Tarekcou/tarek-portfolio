@@ -51,35 +51,37 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="bg-black mx-auto py-12 w-11/12 md:w-10/12 text-white">
-      <div className="mx-auto text-center container">
-        <div className="flex items-center my-5 w-full">
-          <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
-            Services
-          </h2>
-        </div>
-        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Tilt>
-                <Card className="items-center bg-purple-600 shadow-lg border-none rounded-xl h-[200px] text-white">
-                  <CardContent className="flex flex-col justify-center items-start h-full">
-                    <div className="mb-4 text-5xl">{service.icon}</div>
-                    <h3 className="mb-2 font-semibold text-xl text-start">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-200 text-sm text-start">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </Tilt>
-            </motion.div>
-          ))}
+    <section className="bg-black">
+      <div className="mx-auto py-12 w-11/12 md:w-10/12 text-white">
+        <div className="mx-auto text-center container">
+          <div className="flex items-center my-5 w-full">
+            <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
+              Services
+            </h2>
+          </div>
+          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Tilt>
+                  <Card className="items-center bg-purple-800 shadow-lg border-none rounded-xl h-[150px] md:h-[220px] text-white">
+                    <CardContent className="flex flex-col justify-center items-start h-full">
+                      <div className="text-5xl">{service.icon}</div>
+                      <h3 className="my-1 font-semibold text-xl text-start">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-200 text-sm text-start">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Tilt>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

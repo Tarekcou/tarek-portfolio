@@ -21,53 +21,33 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const LatestProjects: React.FC = () => {
+const LatestProjectsMobile: React.FC = () => {
   return (
-    <section className="hidden md:block py-12">
+    <section className="md:hidden block py-12">
       <div className="flex flex-col items-center gap-4 mx-auto w-11/12 sm:w-10/12">
         <div className="flex flex-col items-center my-5 w-full">
           <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
             Latest Project
           </h2>
-          <div className="mx-auto w-10/12 text-center">
-            <p className="text-white/70 text-base">
-              Here are some latest projects using react, tailwind, and Nodejs as
-              Backend
-            </p>
-          </div>
+          <p className="w-10/12 text-white/70 text-base">
+            Here are some latest projects using react, tailwind, and Nodejs as
+            Backend
+          </p>
         </div>
 
-        <Swiper
-          pagination={{ dynamicBullets: true }}
-          navigation={true}
-          autoplay={{
-            delay: 3500,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          modules={[Pagination, Navigation, Autoplay]}
-          spaceBetween={30}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1240: { slidesPerView: 3 },
-          }}
-          className="w-full h-full"
-        >
+        <div className="grid grid-cols-1 w-full h-full">
           {projects.map((project) => (
-            <SwiperSlide key={project.id}>
-              <motion.div
-                key={project.id}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <ProjectCard project={project} />
-              </motion.div>
-            </SwiperSlide>
+            <motion.div
+              key={project.id}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
-        </Swiper>
+        </div>
         <Link
           href={"/allProjects"}
           className="bg-red-500 hover:bg-red-600 mt-4 px-6 py-2 rounded-full text-white text-xl md:text-2xl"
@@ -79,4 +59,4 @@ const LatestProjects: React.FC = () => {
   );
 };
 
-export default LatestProjects;
+export default LatestProjectsMobile;

@@ -13,58 +13,102 @@ import ClientReviews from "./Reviews/Review";
 import BlogPage from "./Blog/BlogPage";
 import ContactPage from "../Contact/Contact";
 import LatestProjects from "./Projects/LatestProject/LatestProject";
+import LatestProjectsMobile from "./Projects/LatestProject/LatestProjectMobile";
 
 const Home = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeComponent, setActiveComponent] = useState<string>("home"); // Default section
+  const handleScroll = (id: string) => {
+    setActiveComponent(id); // Highlight active section
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   return (
     <div className="relative bg-[#0f0715] mx-auto overflow-hidden">
       <div className="min-h-screen">
-        <div
-          className={`fixed w-full top-0 z-50 transition-all duration-300  ${
-            isScrolled ? "bg-blue-950 shadow-md" : "bg-transparent"
-          }`}
-        >
-          <Nav />
+        <div>
+          <Nav setActiveComponent={handleScroll} />
         </div>
         <div className="pt-20">
-          <Hero />
-        </div>
+          <div
+            id="hero"
+            className={`${
+              activeComponent === "hero"
+                ? "bg-blue-950 text-white"
+                : "bg-transparent"
+            }`}
+          >
+            <Hero />
+          </div>
 
-        <div>
-          <AboutMe />
-        </div>
-        <div>
-          <MySkills />
-        </div>
-        <div>
-          <LatestProjects />
-        </div>
+          <div
+            id="about"
+            className={`${
+              activeComponent === "about"
+                ? "bg-blue-950 text-white"
+                : "bg-transparent"
+            }`}
+          >
+            <AboutMe />
+          </div>
 
-        <div>
-          <Services />
-        </div>
-        
-        <div>
-          <ClientReviews />
-        </div>
-        <div>
-          <BlogPage />
-        </div>
-        <div>
-          <ContactPage />
+          <div
+            id="skills"
+            className={`${
+              activeComponent === "skills"
+                ? "bg-blue-950 text-white"
+                : "bg-transparent"
+            }`}
+          >
+            <MySkills />
+          </div>
+
+          <div
+            id="projects"
+            className={`${
+              activeComponent === "projects"
+                ? "bg-blue-950 text-white"
+                : "bg-transparent"
+            }`}
+          >
+            <LatestProjects />
+            <LatestProjectsMobile />
+          </div>
+
+          <div
+            id="services"
+            className={`${
+              activeComponent === "services"
+                ? "bg-blue-950 text-white"
+                : "bg-transparent"
+            }`}
+          >
+            <Services />
+          </div>
+
+          <div
+            id="reviews"
+            className={`${
+              activeComponent === "reviews"
+                ? "bg-blue-950 text-white"
+                : "bg-transparent"
+            }`}
+          >
+            <ClientReviews />
+          </div>
+
+          <div
+            id="contact"
+            className={`${
+              activeComponent === "contact"
+                ? "bg-blue-950 text-white"
+                : "bg-transparent"
+            }`}
+          >
+            <ContactPage />
+          </div>
+          <Footer setActiveComponent={handleScroll} />
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

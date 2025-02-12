@@ -2,17 +2,17 @@ import { skillsData } from "@/Data/data";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { motion } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
 
 const MySkills = () => {
   return (
-    <div className="bg-neutral-900 py-10">
+    <div className="mx-auto py-10 w-11/12 md:w-10/12">
       <div className="flex items-center my-5 w-full">
-          <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
-            I Work With
-          </h2>
-        </div>
-      <div className="gap-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mx-auto p-5 max-w-6xl ">
+        <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
+          I Work With
+        </h2>
+      </div>
+      <div className="gap-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mx-auto max-w-6xl">
         {skillsData.map((skill, index) => (
           <motion.div
             key={index}
@@ -23,13 +23,20 @@ const MySkills = () => {
             <Card className="bg-neutral-800 hover:bg-blue-950 shadow-lg border-none rounded-xl text-white">
               <CardContent className="flex flex-col items-center p-4">
                 <div>
-                <Image src={skill.image} alt="Skill Icon" width={100} height={100} />
+                  <Image
+                    src={skill.image}
+                    alt="Skill Icon"
+                    width={100}
+                    height={100}
+                  />
                 </div>
                 <div className="mb-2 font-bold text-xl">{skill.title}</div>
-                <Progress
-                  value={parseInt(skill.percent)}
-                  className={`h-2 w-full ${skill.color}`}
-                />
+                <div className="bg-gray-800 rounded-full w-full h-3 overflow-hidden">
+                  <div
+                    className={`${skill.color} h-3`}
+                    style={{ width: skill.percent }}
+                  ></div>
+                </div>
                 <div className="mt-2 text-gray-400 text-sm">
                   {skill.percent}
                 </div>
