@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { BaseInfo } from "@/Data/data";
 const Hero = () => {
   return (
-    <section className="flex lg:flex-row flex-col justify-between items-center gap-5 mx-auto py-10 w-11/12 lg:w-10/12 text-white">
+    <section className="flex lg:flex-row flex-col justify-between items-center my-10  gap-5 mx-auto p-10 w-11/12 lg:w-10/12 text-white">
       {/* Left Content */}
       <div className="max-w-xl">
         <h1 className="mb-2 font-semibold text-2xl lg:text-5xl">
@@ -32,8 +32,8 @@ const Hero = () => {
         <Image
           src={hero} // Replace with your image path
           alt="Profile Picture"
-          width={400}
-          height={400}
+          width={350}
+          height={350}
           className="w-full h-full object-cover"
         />
       </div>

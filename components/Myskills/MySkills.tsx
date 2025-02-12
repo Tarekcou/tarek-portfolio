@@ -2,28 +2,17 @@ import { skillsData } from "@/Data/data";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { motion } from "framer-motion";
-import { Image } from "lucide-react";
-
-const skills = [
-  { name: "React", level: 90, color: "bg-blue-500" },
-  { name: "CSS", level: 97, color: "bg-blue-400" },
-  { name: "JavaScript", level: 77, color: "bg-yellow-400" },
-  { name: "TypeScript", level: 67, color: "bg-blue-600" },
-  { name: "HTML", level: 67, color: "bg-orange-500" },
-  { name: "Node JS", level: 77, color: "bg-green-600" },
-  { name: "MongoDB", level: 65, color: "bg-green-500" },
-  { name: "Python", level: 55, color: "bg-yellow-600" },
-  { name: "Firebase", level: 75, color: "bg-orange-400" },
-  { name: "Vue", level: 35, color: "bg-green-400" },
-];
+import Image from 'next/image';
 
 const MySkills = () => {
   return (
     <div className="bg-neutral-900 py-10">
-      <h1 className="mb-6 font-bold text-white text-3xl text-center">
-        My Skills
-      </h1>
-      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto p-5 max-w-6xl">
+      <div className="flex items-center my-5 w-full">
+          <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
+            I Work With
+          </h2>
+        </div>
+      <div className="gap-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mx-auto p-5 max-w-6xl ">
         {skillsData.map((skill, index) => (
           <motion.div
             key={index}
@@ -31,10 +20,10 @@ const MySkills = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card className="bg-neutral-800 shadow-lg rounded-xl text-white">
+            <Card className="bg-neutral-800 hover:bg-blue-950 shadow-lg border-none rounded-xl text-white">
               <CardContent className="flex flex-col items-center p-4">
                 <div>
-                  <img src={skill.image} alt="" />
+                <Image src={skill.image} alt="Skill Icon" width={100} height={100} />
                 </div>
                 <div className="mb-2 font-bold text-xl">{skill.title}</div>
                 <Progress
@@ -42,7 +31,7 @@ const MySkills = () => {
                   className={`h-2 w-full ${skill.color}`}
                 />
                 <div className="mt-2 text-gray-400 text-sm">
-                  {skill.percent}%
+                  {skill.percent}
                 </div>
               </CardContent>
             </Card>

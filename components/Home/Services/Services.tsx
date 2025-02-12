@@ -66,7 +66,7 @@ const Services = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Tilt>
-                <Card className="items-center bg-purple-600 shadow-lg border-none rounded-xl h-[250px] text-white">
+                <Card className="items-center bg-purple-600 shadow-lg border-none rounded-xl h-[200px] text-white">
                   <CardContent className="flex flex-col justify-center items-start h-full">
                     <div className="mb-4 text-5xl">{service.icon}</div>
                     <h3 className="mb-2 font-semibold text-xl text-start">

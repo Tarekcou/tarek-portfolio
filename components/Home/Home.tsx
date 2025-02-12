@@ -9,6 +9,10 @@ import Footer from "../Footer/Footer";
 import AboutMe from "./About/About";
 import Services from "./Services/Services";
 import MySkills from "../Myskills/MySkills";
+import ClientReviews from "./Reviews/Review";
+import BlogPage from "./Blog/BlogPage";
+import ContactPage from "../Contact/Contact";
+import LatestProjects from "./Projects/LatestProject/LatestProject";
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,12 +42,25 @@ const Home = () => {
         <div>
           <AboutMe />
         </div>
+        <div>
+          <MySkills />
+        </div>
+        <div>
+          <LatestProjects />
+        </div>
 
         <div>
           <Services />
         </div>
+        
         <div>
-          <MySkills />
+          <ClientReviews />
+        </div>
+        <div>
+          <BlogPage />
+        </div>
+        <div>
+          <ContactPage />
         </div>
       </div>
 
