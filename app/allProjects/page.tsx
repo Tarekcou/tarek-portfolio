@@ -2,16 +2,11 @@
 import React, { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import tutorly from "../../assets/tutorly.png";
-import equi from "../../assets/equi.png";
-import bari from "../../assets/bari.png";
-import career from "../../assets/career.png";
+
 import ProjectCard from "@/components/Home/Projects/ProjectCard";
 import { projects } from "@/Data/data";
-import Nav from "@/components/Home/Navbar/Nav";
-import Footer from "@/components/Footer/Footer";
-import { MoveLeft, MoveLeftIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
+import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 // Projects Data
 

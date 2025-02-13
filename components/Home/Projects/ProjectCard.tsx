@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { Project } from "./type"; // Import the Project type
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 
 interface ProjectCardProps {
   project: Project; // The prop will be of type Project

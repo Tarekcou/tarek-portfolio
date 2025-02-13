@@ -7,7 +7,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Link from "next/link";
 import { AlignJustify, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";

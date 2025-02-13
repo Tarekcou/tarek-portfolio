@@ -1,16 +1,14 @@
 "use client";
-import React, { act } from "react";
+import React from "react";
 import Nav from "./Navbar/Nav";
 import Hero from "./Hero/Hero";
 import { useEffect, useState } from "react";
 
-import Link from "next/link";
 import Footer from "../Footer/Footer";
 import AboutMe from "./About/About";
 import Services from "./Services/Services";
 import MySkills from "../Myskills/MySkills";
 import ClientReviews from "./Reviews/Review";
-import BlogPage from "./Blog/BlogPage";
 import ContactPage from "../Contact/Contact";
 import LatestProjects from "./Projects/LatestProject/LatestProject";
 import LatestProjectsMobile from "./Projects/LatestProject/LatestProjectMobile";

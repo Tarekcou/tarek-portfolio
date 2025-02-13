@@ -1,22 +1,7 @@
 "use client";
-import {
-  FaFacebookF,
-  FaGithub,
-  FaInstagram,
-  FaLocationArrow,
-  FaLocationDot,
-  FaMapLocation,
-  FaWhatsapp,
-} from "react-icons/fa6";
+import { FaLocationDot, FaWhatsapp } from "react-icons/fa6";
 import Image from "next/image";
-import {
-  Download,
-  Facebook,
-  Github,
-  Instagram,
-  LocateFixedIcon,
-  LucideWheat,
-} from "lucide-react";
+import { Download, Facebook, Github, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BaseInfo } from "@/Data/data";
 

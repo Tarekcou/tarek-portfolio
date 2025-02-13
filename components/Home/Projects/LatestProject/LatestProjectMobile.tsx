@@ -1,7 +1,5 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 // Swiper CSS
 import "swiper/css";
@@ -11,8 +9,7 @@ import "swiper/css/navigation";
 // Components
 import ProjectCard from "../ProjectCard";
 import Link from "next/link";
-import MySkills from "@/components/Myskills/MySkills";
-import { projectData, projects } from "@/Data/data";
+import { projects } from "@/Data/data";
 
 // Projects Object
 

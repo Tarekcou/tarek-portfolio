@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Sora } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Home/Navbar/Nav";
 import Head from "next/head";
 
 const font = Sora({

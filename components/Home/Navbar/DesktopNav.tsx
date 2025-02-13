@@ -1,12 +1,7 @@
 "use client";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Download, Home } from "lucide-react";
-import { useState } from "react";
-import AboutMe from "../About/About";
-import Services from "../Services/Services";
-import LatestProjects from "../Projects/LatestProject/LatestProject";
-import ContactPage from "@/components/Contact/Contact";
+import { Download } from "lucide-react";
+
 import Image from "next/image";
 
 const DesktopNav = ({

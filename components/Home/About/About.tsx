@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import { Check, Users, Rocket, BadgeCheck, LineChart } from "lucide-react";
-import { SquareCheck } from "lucide-react";
-import { aboutInfo } from "@/Data/data";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Education from "./Education";
 import Skills from "./Skills";

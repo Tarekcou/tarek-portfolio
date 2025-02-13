@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, Users, Rocket, BadgeCheck, LineChart } from "lucide-react";
+import { Users, Rocket, BadgeCheck, LineChart } from "lucide-react";
 import { SquareCheck } from "lucide-react";
 import { aboutInfo } from "@/Data/data";
 const Skills = () => {

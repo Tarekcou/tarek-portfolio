@@ -1,12 +1,9 @@
 "use client";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
-import React, { use, useState } from "react";
+import React from "react";
 import { projects } from "@/Data/data";
-import Nav from "@/components/Home/Navbar/Nav";
-import Footer from "@/components/Footer/Footer";
-import { FaBackward } from "react-icons/fa6";
-import { Backpack, MoveLeft, SendToBack } from "lucide-react";
+
+import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 
 // Define the Project type (you can extend it as needed)

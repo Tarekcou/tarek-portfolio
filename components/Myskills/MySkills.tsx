@@ -1,6 +1,5 @@
 import { skillsData } from "@/Data/data";
 import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
