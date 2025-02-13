@@ -33,7 +33,9 @@ const MySkills = () => {
                 <div className="mb-2 font-bold text-xl">{skill.title}</div>
                 <div className="bg-gray-800 rounded-full w-full h-3 overflow-hidden">
                   <div
-                    className={`${skill.color} h-3`}
+                    className={`${
+                      skill.color ? skill.color : "bg-green-500"
+                    } h-3`}
                     style={{ width: skill.percent }}
                   ></div>
                 </div>

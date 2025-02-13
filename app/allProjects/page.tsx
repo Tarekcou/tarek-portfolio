@@ -10,6 +10,9 @@ import ProjectCard from "@/components/Home/Projects/ProjectCard";
 import { projects } from "@/Data/data";
 import Nav from "@/components/Home/Navbar/Nav";
 import Footer from "@/components/Footer/Footer";
+import { MoveLeft, MoveLeftIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 // Projects Data
 
 // MyProjects Component
@@ -29,11 +32,16 @@ const AllProjectPage = () => {
   };
   return (
     <div>
-      <Nav setActiveComponent={handleScroll} />
+      {/* <Nav setActiveComponent={handleScroll} /> */}
 
-      <section className="bg-[#0f0715] py-12 pt-28 text-white">
+      <section className="bg-[rgb(15,7,21)] py-12 pt-28 text-white">
         <div className="mx-auto w-11/12 md:w-10/12">
           <div className="mx-auto px-4 max-w-6xl">
+            <Link href={"/"}>
+              <h1 className="flex gap-2 text-white text-xl underline">
+                <MoveLeft /> Return to Home Page
+              </h1>
+            </Link>
             <div className="mb-10 text-center">
               <h2 className="font-bold text-3xl">My Projects</h2>
             </div>
@@ -66,8 +74,6 @@ const AllProjectPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer setActiveComponent={handleScroll} />
     </div>
   );
 };

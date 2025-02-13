@@ -1,16 +1,25 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { projects } from "@/Data/data";
 import Nav from "@/components/Home/Navbar/Nav";
 import Footer from "@/components/Footer/Footer";
+import { FaBackward } from "react-icons/fa6";
+import { Backpack, MoveLeft, SendToBack } from "lucide-react";
+import Link from "next/link";
 
 // Define the Project type (you can extend it as needed)
 
-const ProjectDetails = ({ params }: { params: { id: string } }) => {
-  // Parse project ID from params
-  const projectId = parseInt(params.id);
+interface ProjectDetailsProps {
+  params: { id: string };
+}
+
+const ProjectDetails = ({ params }: ProjectDetailsProps) => {
+  const { id } = params;
+
+  // Convert the id to an integer
+  const projectId = parseInt(id);
 
   // Find the project from the data array using the ID
   const project = projects.find((project) => project.id === projectId);
@@ -20,18 +29,17 @@ const ProjectDetails = ({ params }: { params: { id: string } }) => {
     return <div>Project not found.</div>;
   }
 
-  const [activeComponent, setActiveComponent] = useState<string>("home"); // Default section
-  const handleScroll = (id: string) => {
-    setActiveComponent(id); // Highlight active section
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <div className="bg-[#0f0715] pt-28">
-      <div>
-        <Nav setActiveComponent={handleScroll} />
-      </div>
-      <div className="space-y-3 shadow-md mx-auto mt-5 p-6 rounded-xl max-w-4xl text-white">
+    <div className="bg-[#0f0715] py-10">
+      <Link
+        className="flex items-start mx-auto w-8/12"
+        href={"/?route=projects"}
+      >
+        <h1 className="flex gap-2 text-white text-xl underline">
+          <MoveLeft /> Return to Home Page
+        </h1>
+      </Link>
+      <div className="space-y-3 bg-gray-800 shadow-md mx-auto mt-5 p-6 rounded-xl max-w-4xl text-white">
         <h2 className="mb-4 font-bold text-2xl">{project.title}</h2>
         <Image
           src={project.image}
@@ -68,17 +76,14 @@ const ProjectDetails = ({ params }: { params: { id: string } }) => {
             {project.githubLink}
           </a>
         </p>
-        <p>
-          <strong>Challenges Faced:</strong> {project.challenges}
+        <p className="text-gray-300">
+          <strong className="text-white">Challenges Faced:</strong>{" "}
+          {project.challenges}
         </p>
         <p>
           <strong>Potential Improvements & Future Plans:</strong>{" "}
           {project.futurePlans}
         </p>
-      </div>
-
-      <div>
-        <Footer setActiveComponent={handleScroll} />
       </div>
     </div>
   );

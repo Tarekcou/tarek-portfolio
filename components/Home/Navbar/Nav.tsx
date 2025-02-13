@@ -7,11 +7,12 @@ import MobileNav from "./MobileNav";
 
 const Nav = ({
   setActiveComponent,
+  activeComponent,
 }: {
   setActiveComponent: (section: string) => void;
+  activeComponent: string;
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-
   useEffect(() => {
     // Handle scroll event to update navbar background and shadow
     const handleScroll = () => {
@@ -42,7 +43,10 @@ const Nav = ({
         isScrolled ? "bg-blue-950 shadow-md" : "bg-transparent"
       }`}
     >
-      <DesktopNav setActiveComponent={handleSectionScroll} />
+      <DesktopNav
+        setActiveComponent={handleSectionScroll}
+        activeComponent={activeComponent}
+      />
       <MobileNav setActiveComponent={handleSectionScroll} />
     </div>
   );

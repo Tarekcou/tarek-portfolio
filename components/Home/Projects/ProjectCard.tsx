@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Project } from "./type"; // Import the Project type
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 interface ProjectCardProps {
   project: Project; // The prop will be of type Project
@@ -37,13 +38,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </span>
         ))}
       </div>
-
-      <Link
-        href={`/projects/${project.id}`}
-        className="bg-blue-600 hover:bg-blue-600 my-2 px-4 py-2 border-none rounded-xl text-white transition btn"
-      >
-        Details
-      </Link>
+      <div className="flex justify-end gap-2">
+        <Link
+          target="_black"
+          className="bg-cyan-500 border-none text-white btn-info btn"
+          href={project.link}
+        >
+          Demo
+        </Link>
+        <Link
+          href={`/projects/${project.id}`}
+          className="bg-blue-600 hover:bg-blue-600 border-none rounded-xl text-white transition p btn"
+        >
+          Details
+        </Link>
+      </div>
     </div>
   );
 };

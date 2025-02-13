@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { act } from "react";
 import Nav from "./Navbar/Nav";
 import Hero from "./Hero/Hero";
 import { useEffect, useState } from "react";
@@ -14,19 +14,33 @@ import BlogPage from "./Blog/BlogPage";
 import ContactPage from "../Contact/Contact";
 import LatestProjects from "./Projects/LatestProject/LatestProject";
 import LatestProjectsMobile from "./Projects/LatestProject/LatestProjectMobile";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Home = () => {
-  const [activeComponent, setActiveComponent] = useState<string>("home"); // Default section
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const name = searchParams.get("route");
+  const [activeComponent, setActiveComponent] = useState<string>(
+    name || "home"
+  ); // Default section
+  useEffect(() => {
+    handleScroll(name || "home");
+    router.replace("/", { scroll: false });
+  }, [name]);
+  const behaviorType = name ? "auto" : "smooth";
+
   const handleScroll = (id: string) => {
     setActiveComponent(id); // Highlight active section
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: behaviorType });
   };
-
   return (
     <div className="relative bg-[#0f0715] mx-auto overflow-hidden">
       <div className="min-h-screen">
         <div>
-          <Nav setActiveComponent={handleScroll} />
+          <Nav
+            setActiveComponent={handleScroll}
+            activeComponent={activeComponent}
+          />
         </div>
         <div className="pt-20">
           <div

@@ -1,6 +1,6 @@
 export const BaseInfo = {
   name: "Shoriful Islam Tarek",
-  position: "Full Stack Web Developer",
+  position: "Full Stack Web Developer (React)",
   description:
     "I am a Front-End Developer proficient in JavaScript and React, with backend experience in Node.js and MongoDB. Passionate about innovation, I create user-focused web solutions and embrace continuous learning.I am excited about learning AI and applying it to web solutions.",
   profilePic: "/images/profile.png",
@@ -124,8 +124,8 @@ export const skillsData = [
   },
   {
     id: 2,
-    title: "CSS",
-    image: "/images/css.svg",
+    title: "Next.js",
+    image: "/images/nextjs-icon.svg",
     percent: "97%",
     color: "bg-green-500",
   },

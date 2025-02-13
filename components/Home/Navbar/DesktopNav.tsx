@@ -11,8 +11,10 @@ import Image from "next/image";
 
 const DesktopNav = ({
   setActiveComponent,
+  activeComponent,
 }: {
   setActiveComponent: (section: string) => void;
+  activeComponent: string;
 }) => {
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -22,36 +24,60 @@ const DesktopNav = ({
   };
   const navMenu = (
     <>
-      <button onClick={() => setActiveComponent("hero")} className="nav_link">
+      <button
+        onClick={() => setActiveComponent("hero")}
+        className={`nav_link ${
+          activeComponent == "hero" ? "after:scale-x-100" : " "
+        }`}
+      >
         Home
       </button>
-      <button onClick={() => setActiveComponent("about")} className="nav_link">
+
+      <button
+        onClick={() => setActiveComponent("about")}
+        className={`nav_link ${
+          activeComponent == "about" ? "after:scale-x-100" : " "
+        }`}
+      >
         About
       </button>
-      <button onClick={() => setActiveComponent("skills")} className="nav_link">
+      <button
+        onClick={() => setActiveComponent("skills")}
+        className={`nav_link ${
+          activeComponent == "skills" ? "after:scale-x-100" : " "
+        }`}
+      >
         Skills
       </button>
       <button
         onClick={() => setActiveComponent("projects")}
-        className="nav_link"
+        className={`nav_link ${
+          activeComponent == "projects" ? "after:scale-x-100" : " "
+        }`}
       >
         Projects
       </button>
       <button
         onClick={() => setActiveComponent("services")}
-        className="nav_link"
+        className={`nav_link ${
+          activeComponent == "services" ? "after:scale-x-100" : " "
+        }`}
       >
         Services
       </button>
       <button
         onClick={() => setActiveComponent("reviews")}
-        className="nav_link"
+        className={`nav_link ${
+          activeComponent == "reviews" ? "after:scale-x-100" : " "
+        }`}
       >
         Reviews
       </button>
       <button
         onClick={() => setActiveComponent("contact")}
-        className="nav_link"
+        className={`nav_link ${
+          activeComponent == "contact" ? "after:scale-x-100" : " "
+        }`}
       >
         Contact
       </button>

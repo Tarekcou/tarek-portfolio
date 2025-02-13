@@ -32,14 +32,41 @@ const Hero = () => {
       <div className="flex lg:flex-row flex-col justify-between items-center gap-5 mx-auto my-5 py-10 w-11/12 lg:w-10/12 text-white">
         {/* Left Content */}
         <div className="flex-1">
-          <h1 className="mb-2 font-semibold text-2xl lg:text-5xl">
+          <h1 className="mb-2 font-semibold text-2xl lg:text-3xl">
             I am <br></br>
-            <span className="text-3xl">{BaseInfo.name}</span>
+            <span className="text-4xl">{BaseInfo.name}</span>
           </h1>
-          <h2 className="bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 font-bold text-transparent text-4xl lg:text-6xl">
+          <h2 className="bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 font-bold text-transparent text-3xl lg:text-5xl">
             {BaseInfo.position}
           </h2>
           <p className="mt-4 text-gray-400 text-base">{BaseInfo.description}</p>
+          <div className="flex gap-2 my-3">
+            <Image
+              width={40}
+              height={40}
+              alt="react"
+              src={"/images/react.svg"}
+            ></Image>
+            <Image
+              width={40}
+              height={40}
+              alt="react"
+              className="bg-white"
+              src={"/images/nextjs-icon.svg"}
+            ></Image>
+            <Image
+              width={40}
+              height={40}
+              alt="react"
+              src={"/images/mongo.svg"}
+            ></Image>
+            <Image
+              width={40}
+              height={40}
+              alt="react"
+              src={"/images/node.svg"}
+            ></Image>
+          </div>
           <Button
             onClick={handleDownload}
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 mt-6 px-6 py-3 rounded-xl font-semibold text-white"
@@ -61,7 +88,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="hover:text-black text-xl cursor-pointer" />
+              <Github className="hover:text-yellow-500 text-xl cursor-pointer" />
             </a>
             <a
               href="https://wa.me/01818424256"

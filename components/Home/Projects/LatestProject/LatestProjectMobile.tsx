@@ -23,7 +23,7 @@ const fadeUp = {
 
 const LatestProjectsMobile: React.FC = () => {
   return (
-    <section className="md:hidden block py-12">
+    <section className="md:hidden block space-y-3 py-12">
       <div className="flex flex-col items-center gap-4 mx-auto w-11/12 sm:w-10/12">
         <div className="flex flex-col items-center my-5 w-full">
           <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
@@ -35,7 +35,7 @@ const LatestProjectsMobile: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 w-full h-full">
+        <div className="space-y-2 grid grid-cols-1 w-full h-full">
           {projects.map((project) => (
             <motion.div
               key={project.id}

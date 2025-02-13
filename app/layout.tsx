@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Sora } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Home/Navbar/Nav";
+import Head from "next/head";
 
 const font = Sora({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -11,6 +12,9 @@ const font = Sora({
 export const metadata: Metadata = {
   title: "Shoriful Islam Portfolio",
   description: "Shoriful Islam Full Stack Developer",
+  icons: {
+    icon: "/images/logo.png", // Path to your favicon in the public folder
+  },
 };
 
 export default function RootLayout({
@@ -20,6 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html data-theme="light" lang="en">
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <body className={font.className}>{children}</body>
     </html>
   );
