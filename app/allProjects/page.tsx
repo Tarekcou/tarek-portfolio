@@ -20,11 +20,11 @@ const AllProjectPage = () => {
       : projects.filter((project) => project.tag.includes(category));
   };
 
-  const [activeComponent, setActiveComponent] = useState<string>("home"); // Default section
-  const handleScroll = (id: string) => {
-    setActiveComponent(id); // Highlight active section
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const [, setActiveComponent] = useState<string>("home"); // Default section
+  // const handleScroll = (id: string) => {
+  //   setActiveComponent(id); // Highlight active section
+  //   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  // };
   return (
     <div>
       {/* <Nav setActiveComponent={handleScroll} /> */}

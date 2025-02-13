@@ -95,7 +95,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ phone, email, address }) => (
 );
 
 export default function ContactPage() {
-  const [contactInfo, setContactInfo] = useState<ContactInfoProps>(contactData);
+  const [contactInfo] = useState<ContactInfoProps>(contactData);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -133,7 +133,7 @@ export default function ContactPage() {
         "8uhWBVtl_895spl21" // EmailJS user ID
       );
 
-      // console.log("Email sent successfully", result);
+      console.log("Email sent successfully", result);
       toast.success("Email Send Successfully");
       setFormData({
         firstName: "",
