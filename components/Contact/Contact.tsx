@@ -149,10 +149,6 @@ export default function ContactPage() {
     }
   };
 
-  // Load contact info on client-side
-  useEffect(() => {
-    if (typeof window !== "undefined") setContactInfo(contactData);
-  }, []);
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
