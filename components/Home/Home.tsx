@@ -1,9 +1,7 @@
 "use client";
-import React, { Suspense, useCallback } from "react";
+import React, { Suspense, useCallback, useEffect, useState } from "react";
 import Nav from "./Navbar/Nav";
 import Hero from "./Hero/Hero";
-import { useEffect, useState } from "react";
-
 import Footer from "../Footer/Footer";
 import AboutMe from "./About/About";
 import Services from "./Services/Services";
@@ -17,11 +15,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 const Home = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const name = searchParams.get("route");
-  const [activeComponent, setActiveComponent] = useState<string>(
-    name || "home"
-  ); // Default section
-  const behaviorType = name ? "auto" : "smooth";
+  const [activeComponent, setActiveComponent] = useState<string>("home"); // Default section
+  const behaviorType = activeComponent !== "home" ? "auto" : "smooth";
 
   const handleScroll = useCallback(
     (id: string) => {
@@ -32,97 +27,44 @@ const Home = () => {
   );
 
   useEffect(() => {
-    handleScroll(name || "home");
-    router.replace("/", { scroll: false });
-  }, [name, handleScroll, router]);
+    const name = searchParams.get("route");
+    if (name) {
+      handleScroll(name);
+      router.replace("/", { scroll: false }); // Prevent infinite rerenders
+    }
+  }, [searchParams, handleScroll, router]);
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="relative bg-[#0f0715] mx-auto overflow-hidden">
         <div className="min-h-screen">
-          <div>
-            <Nav
-              setActiveComponent={handleScroll}
-              activeComponent={activeComponent}
-            />
-          </div>
+          <Nav
+            setActiveComponent={handleScroll}
+            activeComponent={activeComponent}
+          />
           <div className="pt-20">
-            <div
-              id="hero"
-              className={`${
-                activeComponent === "hero"
-                  ? "bg-blue-950 text-white"
-                  : "bg-transparent"
-              }`}
-            >
+            <Section id="hero" activeComponent={activeComponent}>
               <Hero />
-            </div>
-
-            <div
-              id="about"
-              className={`${
-                activeComponent === "about"
-                  ? "bg-blue-950 text-white"
-                  : "bg-transparent"
-              }`}
-            >
+            </Section>
+            <Section id="about" activeComponent={activeComponent}>
               <AboutMe />
-            </div>
-
-            <div
-              id="skills"
-              className={`${
-                activeComponent === "skills"
-                  ? "bg-blue-950 text-white"
-                  : "bg-transparent"
-              }`}
-            >
+            </Section>
+            <Section id="skills" activeComponent={activeComponent}>
               <MySkills />
-            </div>
-
-            <div
-              id="projects"
-              className={`${
-                activeComponent === "projects"
-                  ? "bg-blue-950 text-white"
-                  : "bg-transparent"
-              }`}
-            >
+            </Section>
+            <Section id="projects" activeComponent={activeComponent}>
               <LatestProjects />
               <LatestProjectsMobile />
-            </div>
-
-            <div
-              id="services"
-              className={`${
-                activeComponent === "services"
-                  ? "bg-blue-950 text-white"
-                  : "bg-transparent"
-              }`}
-            >
+            </Section>
+            <Section id="services" activeComponent={activeComponent}>
               <Services />
-            </div>
-
-            <div
-              id="reviews"
-              className={`${
-                activeComponent === "reviews"
-                  ? "bg-blue-950 text-white"
-                  : "bg-transparent"
-              }`}
-            >
+            </Section>
+            <Section id="reviews" activeComponent={activeComponent}>
               <ClientReviews />
-            </div>
-
-            <div
-              id="contact"
-              className={`${
-                activeComponent === "contact"
-                  ? "bg-blue-950 text-white"
-                  : "bg-transparent"
-              }`}
-            >
+            </Section>
+            <Section id="contact" activeComponent={activeComponent}>
               <ContactPage />
-            </div>
+            </Section>
             <Footer setActiveComponent={handleScroll} />
           </div>
         </div>
@@ -130,5 +72,25 @@ const Home = () => {
     </Suspense>
   );
 };
+
+// ✅ Extracted Section Component for cleaner code
+const Section = ({
+  id,
+  activeComponent,
+  children,
+}: {
+  id: string;
+  activeComponent: string;
+  children: React.ReactNode;
+}) => (
+  <div
+    id={id}
+    className={
+      activeComponent === id ? "bg-blue-950 text-white" : "bg-transparent"
+    }
+  >
+    {children}
+  </div>
+);
 
 export default Home;
