@@ -1,29 +1,26 @@
-"use client";
 import Image from "next/image";
 import React from "react";
 import { projects } from "@/Data/data";
-
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 
-// Define the Project type (you can extend it as needed)
+// Define the type for params
+type ProjectDetailsProps = {
+  params: Promise<{ id: string }>;
+};
 
-interface ProjectDetailsProps {
-  params: { id: string };
-}
-
-const ProjectDetails = ({ params }: ProjectDetailsProps) => {
-  const { id } = params;
-
-  // Convert the id to an integer
-  const projectId = parseInt(id);
+const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
+  // Ensure params.id is used correctly
+  const projectId = parseInt((await params).id, 10);
 
   // Find the project from the data array using the ID
   const project = projects.find((project) => project.id === projectId);
 
-  // Return loading state if the project is not found
+  // Handle case where project is not found
   if (!project) {
-    return <div>Project not found.</div>;
+    return (
+      <div className="mt-10 text-white text-center">Project not found.</div>
+    );
   }
 
   return (

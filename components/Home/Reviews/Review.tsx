@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Star } from "lucide-react";
 import { clientReviews } from "@/Data/data";
+import Image from "next/image";
 
 export default function ClientReviews() {
   return (
@@ -42,7 +43,9 @@ export default function ClientReviews() {
               </div>
 
               <div className="flex justify-center items-center gap-4 bg-white mt-4 p-3 rounded-xl">
-                <img
+                <Image
+                  width={10}
+                  height={10}
                   src={review.image}
                   alt={review.name}
                   className="rounded-full w-10 h-10"

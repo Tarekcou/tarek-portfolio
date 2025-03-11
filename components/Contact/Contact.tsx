@@ -161,10 +161,10 @@ export default function ContactPage() {
       <div className="flex md:flex-row flex-col justify-between items-center gap-5 bg-black shadow-lg mx-auto p-6 border-gray-800 w-11/12 md:w-10/12 text-white">
         <Card className="flex-1 bg-[#1a0e26] shadow-lg p-6 border-gray-800 w-full md:w-1/2">
           <h2 className="font-bold text-purple-400 text-3xl">
-            Let's work together!
+            Lets work together!
           </h2>
           <p className="mt-2 text-gray-400 text-xl">
-            Have a project in mind? Let's create something amazing together.
+            Have a project in mind? Lets create something amazing together.
           </p>
           <form onSubmit={handleSubmit}>
             <div className="gap-4 grid grid-cols-1 md:grid-cols-2 mt-6">

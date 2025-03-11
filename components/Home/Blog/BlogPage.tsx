@@ -1,4 +1,5 @@
 import { blogs } from "@/Data/data";
+import Image from "next/image";
 import React from "react";
 
 export default function BlogPage() {
@@ -16,7 +17,9 @@ export default function BlogPage() {
             key={index}
             className="bg-gray-900 shadow-lg rounded-xl overflow-hidden"
           >
-            <img
+            <Image
+              width={30}
+              height={30}
               src={post.image}
               alt={post.title}
               className="w-full h-48 object-cover"
