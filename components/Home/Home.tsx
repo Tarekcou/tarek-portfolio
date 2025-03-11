@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useCallback, useEffect, useState } from "react";
+import React, { Suspense, useCallback, useState } from "react";
 import Nav from "./Navbar/Nav";
 import Hero from "./Hero/Hero";
 import Footer from "../Footer/Footer";
@@ -10,11 +10,9 @@ import ClientReviews from "./Reviews/Review";
 import ContactPage from "../Contact/Contact";
 import LatestProjects from "./Projects/LatestProject/LatestProject";
 import LatestProjectsMobile from "./Projects/LatestProject/LatestProjectMobile";
-import { useRouter, useSearchParams } from "next/navigation";
+import SearchParamsHandler from "./SearchParamsHandler"; // ✅ Import the new component
 
 const Home = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
   const [activeComponent, setActiveComponent] = useState<string>("home"); // Default section
   const behaviorType = activeComponent !== "home" ? "auto" : "smooth";
 
@@ -23,19 +21,13 @@ const Home = () => {
       setActiveComponent(id); // Highlight active section
       document.getElementById(id)?.scrollIntoView({ behavior: behaviorType });
     },
-    [behaviorType] // ✅ Include dependencies
+    [behaviorType]
   );
-
-  useEffect(() => {
-    const name = searchParams.get("route");
-    if (name) {
-      handleScroll(name);
-      router.replace("/", { scroll: false }); // Prevent infinite rerenders
-    }
-  }, [searchParams, handleScroll, router]);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      <SearchParamsHandler onUpdate={handleScroll} />{" "}
+      {/* ✅ Handles query params separately */}
       <div className="relative bg-[#0f0715] mx-auto overflow-hidden">
         <div className="min-h-screen">
           <Nav
@@ -73,7 +65,6 @@ const Home = () => {
   );
 };
 
-// ✅ Extracted Section Component for cleaner code
 const Section = ({
   id,
   activeComponent,
