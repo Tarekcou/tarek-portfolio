@@ -16,13 +16,12 @@ const Home = () => {
   const [activeComponent, setActiveComponent] = useState<string>("home"); // Default section
   const behaviorType = activeComponent !== "home" ? "auto" : "smooth";
 
-  const handleScroll = useCallback(
-    (id: string) => {
-      setActiveComponent(id); // Highlight active section
-      document.getElementById(id)?.scrollIntoView({ behavior: behaviorType });
-    },
-    [behaviorType]
-  );
+  const handleScroll = useCallback((id: string | null) => {
+    if (!id) return; // ✅ Ignore null values
+
+    setActiveComponent(id); // Update active section
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
