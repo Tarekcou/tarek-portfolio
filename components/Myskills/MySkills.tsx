@@ -7,11 +7,11 @@ const MySkills = () => {
   return (
     <div className="mx-auto py-10 w-11/12 md:w-10/12">
       <div className="flex items-center my-5 w-full">
-        <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
+        <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-2xl md:text-4xl -rotate-3 transform">
           I Work With
         </h2>
       </div>
-      <div className="gap-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mx-auto max-w-6xl">
+      <div className="gap-3 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 mx-auto">
         {skillsData.map((skill, index) => (
           <motion.div
             key={index}
@@ -21,20 +21,21 @@ const MySkills = () => {
           >
             <Card className="bg-neutral-800 hover:bg-blue-950 shadow-lg border-none rounded-xl text-white">
               <CardContent className="flex flex-col items-center p-4">
-                <div>
-                  <Image
+                <div className="">
+                  <img
                     src={skill.image}
                     alt="Skill Icon"
-                    width={100}
-                    height={100}
+                    className="bg-white w-10 h-10"
                   />
                 </div>
-                <div className="mb-2 font-bold text-xl">{skill.title}</div>
-                <div className="bg-gray-800 rounded-full w-full h-3 overflow-hidden">
+                <div className="mb-2 font-bold text-xs md:text-base">
+                  {skill.title}
+                </div>
+                <div className="bg-gray-300 rounded-full w-full h-1 overflow-hidden">
                   <div
                     className={`${
-                      skill.color ? skill.color : "bg-green-500"
-                    } h-3`}
+                      skill.color ? "bg-blue-500" : "bg-green-500"
+                    } h-1`}
                     style={{ width: skill.percent }}
                   ></div>
                 </div>
@@ -50,7 +51,4 @@ const MySkills = () => {
   );
 };
 
-// Ensure you have shadcn/ui and Framer Motion installed for animations
-// Tailwind CSS should already be set up for styling.
-// Run: npm install @shadcn/ui framer-motion if needed.
 export default MySkills;

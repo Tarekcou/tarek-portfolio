@@ -26,10 +26,10 @@ const AllProjectPage = () => {
   //   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   // };
   return (
-    <div>
+    <div className="">
       {/* <Nav setActiveComponent={handleScroll} /> */}
 
-      <section className="bg-[rgb(15,7,21)] py-12 pt-28 text-white">
+      <section className="bg-[rgb(15,7,21)] py-12 pt-16 min-h-screen text-white">
         <div className="mx-auto w-11/12 md:w-10/12">
           <div className="mx-auto px-4 max-w-6xl">
             <Link href={"/"}>

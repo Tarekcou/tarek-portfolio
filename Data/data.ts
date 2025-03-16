@@ -2,79 +2,98 @@ export const BaseInfo = {
   name: "Shoriful Islam Tarek",
   position: "Full Stack Web Developer (React)",
   description:
-    "I am a Front-End Developer proficient in JavaScript and React, with backend experience in Node.js and MongoDB. Passionate about innovation, I create user-focused web solutions and embrace continuous learning.I am excited about learning AI and applying it to web solutions.",
+    "I am a Full Stack Developer specializing in React, passionate about creating intuitive web applications. I have a strong foundation in JavaScript, React, and backend technologies like Node.js and MongoDB. I'm eager to explore AI/ML and integrate it into web solutions.",
   profilePic: "/images/profile.png",
 };
 
 export const aboutInfo = {
-  title: "Crafting Web Application with Passion and Precision",
+  title: "Building Scalable and Impactful Web Applications",
   description:
-    "At webdev warriors, we’re a dedicated team of designers and developers committed to delivering tailored web solutions. With a blend of creativity and technical expertise, we help businesses elevate their online presence and achieve their goals",
-  client: "50+",
-  experience: "3+",
-  project: "200+",
-  website: "100+",
+    "With expertise in React js, Next.js, MongoDB, and Redux I build scalable, responsive web applications that enhance user experience and business growth. My proficiency spans frontend, backend, and full-stack development, ensuring high-quality, maintainable code.",
+
+  client: "5+",
+  experience: "1+",
+  project: "15+",
+  website: "5+",
 };
 
 export const servicesData = [
   {
     id: 1,
-    title: " Web Applications",
-    description: "Tailored web apps built with the latest technologies.",
-    icon: "/images/s1.png",
+    title: "Front-End Development",
+    description:
+      "Building modern, responsive, and user-friendly interfaces using React.js, Next.js, and Tailwind CSS.",
+    icon: "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-front-end-computer-programming-flaticons-lineal-color-flat-icons.png",
   },
   {
     id: 2,
-    title: "E-commerce Websites",
+    title: "Full-Stack Development",
     description:
-      "Secure online stores with user-friendly shopping and payments.",
-    icon: "/images/s2.png",
+      "Developing complete web applications with seamless front-end and back-end integration using MERN stack.",
+    icon: "https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-full-stack-computer-programming-flaticons-flat-flat-icons-2.png",
   },
   {
     id: 3,
-    title: "API Integration",
+    title: "Back-End Development",
     description:
-      "Seamless integration for smooth data sharing and functionality.",
-    icon: "/images/s3.png",
+      "Building secure and scalable server-side applications with Node.js, Express.js, and database solutions.",
+    icon: "https://img.icons8.com/ios/50/programming.png",
   },
   {
     id: 4,
-    title: "User Interfaces",
+    title: "Website Design",
     description:
-      "Engaging, responsive front-end designs for better user experiences.",
-    icon: "/images/s4.png",
+      "Crafting visually appealing and intuitive website designs that enhance user engagement and experience.",
+    icon: "https://img.icons8.com/external-smashingstocks-detailed-outline-smashing-stocks/66/external-website-design-digital-marketing-smashingstocks-detailed-outline-smashing-stocks.png",
   },
   {
     id: 5,
-    title: "Database Solutions",
+    title: "Bug Fixing",
     description:
-      "Efficient and scalable database management for your data needs.",
-    icon: "/images/s5.png",
+      "Identifying and resolving bugs to ensure smooth functionality and improved performance.",
+    icon: "https://img.icons8.com/ios/50/bug.png",
   },
   {
     id: 6,
-    title: "Real-Time Features",
-    description: "Add live chat, notifications, and real-time data updates.",
-    icon: "/images/s6.png",
+    title: "Speed Optimization",
+    description:
+      "Enhancing website performance by reducing load times and improving efficiency.",
+    icon: "https://img.icons8.com/ios/50/speed.png",
   },
   {
     id: 7,
-    title: "Speed Optimization",
-    description: "Boost performance with faster load times and optimization.",
-    icon: "/images/s7.png",
+    title: "Website Management",
+    description:
+      "Providing ongoing website maintenance, updates, and security enhancements.",
+    icon: "https://img.icons8.com/ios-filled/50/management.png",
   },
   {
     id: 8,
-    title: "Website Management",
-    description: "Easy content management systems with flexible controls.",
-    icon: "/images/s8.png",
+    title: "Database Solutions",
+    description:
+      "Designing, managing, and optimizing databases for efficient data storage and retrieval.",
+    icon: "https://img.icons8.com/ios/50/data-configuration.png",
+  },
+  {
+    id: 9,
+    title: "User Interface (UI)",
+    description:
+      "Creating visually appealing, interactive, and user-friendly interfaces.",
+    icon: "https://img.icons8.com/dotty/80/web-design.png",
+  },
+  {
+    id: 10,
+    title: "API Integration",
+    description:
+      "Seamlessly integrating third-party APIs for enhanced application functionality and data flow.",
+    icon: "https://img.icons8.com/dotty/80/api.png",
   },
 ];
 
 export const skillsData = [
   {
     id: 1,
-    title: "React",
+    title: "ReactJS",
     image: "/images/b1.jpg",
     percent: "90%",
     color: "bg-blue-500",
@@ -109,7 +128,7 @@ export const skillsData = [
   },
   {
     id: 6,
-    title: "Node JS",
+    title: "Node.js",
     image: "/images/node.svg",
     percent: "77%",
     color: "bg-green-500",
@@ -137,10 +156,39 @@ export const skillsData = [
   },
   {
     id: 10,
-    title: "Express",
-    image: "/images/vue.svg",
+    title: "Express.js",
+    image: "https://img.icons8.com/ios/50/express-js.png",
     percent: "75%",
-    color: "bg-blue-500",
+    color: "bg-gray-500",
+  },
+  {
+    id: 11,
+    title: "Redux",
+    image: "https://img.icons8.com/ios/50/redux.png",
+    percent: "80%",
+    color: "bg-purple-500",
+  },
+  {
+    id: 12,
+    title: "Zustand",
+    image:
+      "https://repository-images.githubusercontent.com/180328715/fca49300-e7f1-11ea-9f51-cfd949b31560",
+    percent: "85%",
+    color: "bg-orange-400",
+  },
+  {
+    id: 13,
+    title: "TailwindCSS",
+    image: "/images/tailwind.svg",
+    percent: "90%",
+    color: "bg-teal-500",
+  },
+  {
+    id: 14,
+    title: "GraphQL",
+    image: "https://img.icons8.com/ios/50/graphql.png",
+    percent: "70%",
+    color: "bg-pink-500",
   },
 ];
 
@@ -216,10 +264,10 @@ export const projects = [
   {
     id: 1,
     title: "BariBazar (Real Estate)",
-    image: "/images/bari.png", // Replace with actual image URL
+    image: "/images/bari.jpeg", // Replace with actual image URL
     description:
       "The BariBazar is a React Application is a modern, feature-rich platform designed to streamline the process of buying, renting, and managing properties such as plots and flats. It offers distinct roles for Admins, Agents, and Users, providing a comprehensive real estate marketplace with secure transactions and an intuitive interface.",
-    link: "baribazar-9589d.web.app",
+    link: "https://baribazar-9589d.web.app/",
     techStack: ["React", "Express", "MongoDb", "Tailwind CSS", "jWT"],
     githubLink: "https://github.com/example/realestate-client",
     challenges: "Handling complex user roles and ensuring data security.",
@@ -229,7 +277,7 @@ export const projects = [
   {
     id: 2,
     title: "Tutor Finding Website",
-    image: "/images/tutorly.png", // Replace with actual image URL
+    image: "/images/tutor.jpeg", // Replace with actual image URL
     techStack: ["React", "Firebase", "Tailwind", "MongoDb"],
     description:
       "The Tutor Finding React Application is a dynamic web platform designed to connect students with qualified tutors efficiently. It allows students to search for tutors based on subjects, expertise, location, and availability. The application is built using React for a responsive user interface, with seamless navigation and real-time updates.",
@@ -244,7 +292,7 @@ export const projects = [
   {
     id: 3,
     title: "Sports Equipment Store",
-    image: "/images/equi.png", // Replace with actual image URL
+    image: "/images/sports.jpeg", // Replace with actual image URL
     techStack: ["React", "Node.js", "MongoDB", "Tailwind"],
     description:
       "The Sports Equipment Buying React Application is an intuitive e-commerce platform designed to help users easily find, compare, and purchase sports equipment from various categories. Built with React, the application ensures a fast, responsive, and engaging user experience across all devices.",
@@ -259,7 +307,7 @@ export const projects = [
   {
     id: 4,
     title: "Career Counseling",
-    image: "/images/career.png", // Replace with actual image URL
+    image: "/images/career.jpeg", // Replace with actual image URL
     description:
       "This is a web application that helps users navigate their career choices through personalized guidance, assessments, and resources. Built with React for a dynamic, interactive, and responsive user interface, it allows career counselors and individuals to access tools and information seamlessly.",
     link: "https://career-counseling-65178.web.app/",

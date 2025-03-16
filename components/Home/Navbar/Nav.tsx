@@ -42,10 +42,7 @@ const Nav = ({
         isScrolled ? "bg-blue-950 shadow-md" : "bg-transparent"
       }`}
     >
-      <DesktopNav
-        setActiveComponent={handleSectionScroll}
-        activeComponent={activeComponent}
-      />
+      <DesktopNav />
       <MobileNav setActiveComponent={handleSectionScroll} />
     </div>
   );

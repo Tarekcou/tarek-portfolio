@@ -40,7 +40,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
           alt={project.title}
           width={600}
           height={400}
-          className="mb-4 rounded-md w-full h-60 object-cover"
+          className="mb-4 rounded-md w-full h-[600px] object-cover"
         />
         <p>
           <strong>Main Technology Stack:</strong> {project.techStack}

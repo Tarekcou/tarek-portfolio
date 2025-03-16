@@ -50,24 +50,24 @@ const Footer = ({
           <Image
             src="/images/logo.png"
             alt="logo"
-            width={30}
+            width={40}
             height={40}
-            className="rounded-lg"
+            className="rounded-full w-6 md:w-10 h-6 md:h-10"
           />
           <h1 className="font-bold">Tarek</h1>
         </div>
 
         <div className="gap-4 grid grid-flow-col">
-          <ul className="flex items-center gap-5 text-base nav_link">
+          <ul className="flex flex-wrap items-center gap-5 mt-5 text-xs md:text-base">
             {navMenu}
           </ul>
         </div>
       </nav>
-      <footer className="p-4 text-gray-400 footer footer-center">
+      <footer className="text-gray-400 footer footer-center">
         <aside>
           <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by
-            Shoriful Islam Tarek
+            Copyright © {new Date().getFullYear()} - All right reserved by{" "}
+            <span className="underline"> Shoriful Islam Tarek</span>
           </p>
         </aside>
       </footer>

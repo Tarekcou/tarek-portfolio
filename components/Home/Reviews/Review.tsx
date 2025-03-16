@@ -10,9 +10,9 @@ import Image from "next/image";
 
 export default function ClientReviews() {
   return (
-    <div className="relative bg-black px-4 md:px-20 py-12 text-white">
+    <div className="relative bg-black mx-auto py-12 w-11/12 md:w-10/12 text-white">
       <div className="flex items-center my-5 w-full">
-        <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
+        <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-2xl md:text-4xl -rotate-3 transform">
           Client Reviews
         </h2>
       </div>
@@ -42,7 +42,7 @@ export default function ClientReviews() {
                 <Star className="w-4 h-4 text-yellow-400" />
               </div>
 
-              <div className="flex justify-center items-center gap-4 bg-white mt-4 p-3 rounded-xl">
+              <div className="flex justify-center items-center gap-4 bg-white mt-4 p-1 md:p-3 rounded-xl">
                 <Image
                   width={10}
                   height={10}
@@ -51,8 +51,12 @@ export default function ClientReviews() {
                   className="rounded-full w-10 h-10"
                 />
                 <div className="text-left">
-                  <p className="font-bold text-black text-xl">{review.name}</p>
-                  <p className="text-gray-600 text-sm">{review.profession}</p>
+                  <p className="font-bold text-black text-sm md:text-xl">
+                    {review.name}
+                  </p>
+                  <p className="text-gray-600 text-xs md:text-sm">
+                    {review.profession}
+                  </p>
                 </div>
               </div>
             </div>

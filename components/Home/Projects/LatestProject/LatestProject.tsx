@@ -22,21 +22,33 @@ const fadeUp = {
 
 const LatestProjects: React.FC = () => {
   return (
-    <section className="hidden md:block py-12">
+    <section className="hidden md:block !bg-[#0f0715] py-12">
       <div className="flex flex-col items-center gap-4 mx-auto w-11/12 sm:w-10/12">
         <div className="flex flex-col items-center my-5 w-full">
-          <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-3xl md:text-4xl -rotate-3 transform">
+          <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-2xl md:text-4xl -rotate-3 transform">
             Latest Project
           </h2>
           <div className="mx-auto w-10/12 text-center">
-            <p className="text-white/70 text-base">
-              Here are some latest projects using react, tailwind, and Nodejs as
-              Backend
+            <p className="text-white/80 text-base">
+              Here are some latest projects using MERN Stack
             </p>
           </div>
         </div>
-
-        <Swiper
+        {/* prpjects */}
+        <div className="gap-5 grid grid-cols-1 md:grid-cols-2 w-full">
+          {projects.map((project) => (
+            <motion.div
+              key={project.id}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
+        </div>
+        {/* <Swiper
           pagination={{ dynamicBullets: true }}
           navigation={true}
           autoplay={{
@@ -49,7 +61,7 @@ const LatestProjects: React.FC = () => {
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
-            1240: { slidesPerView: 3 },
+            1240: { slidesPerView: 2 },
           }}
           className="w-full h-full"
         >
@@ -66,12 +78,13 @@ const LatestProjects: React.FC = () => {
               </motion.div>
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
+        <div className="bg-red-500 divide-red-500 divide"></div>
         <Link
           href={"/allProjects"}
-          className="bg-red-500 hover:bg-red-600 mt-4 px-6 py-2 rounded-full text-white text-xl md:text-2xl"
+          className="bg-red-500 hover:bg-red-600 mt-4 rounded-full text-white text-xl md:text-2xl btn"
         >
-          All Projects
+          See All Projects
         </Link>
       </div>
     </section>

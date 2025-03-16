@@ -47,11 +47,13 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
   label,
   value,
 }) => (
-  <div className="flex items-center space-x-4 mt-4 text-gray-300">
+  <div className="flex items-center space-x-4 mt-4 px-4 w-full text-gray-300">
     {icon}
     <div>
-      <p className="font-bold">{label}</p>
-      <p className="text-base">{value}</p>
+      <p className="font-bold text-base md:text-xl">{label}</p>
+      <p className="text-blue-400 text-xs md:text-base cursor-pointer">
+        {value}
+      </p>
     </div>
   </div>
 );
@@ -75,7 +77,7 @@ const InquirySelect: React.FC<{
 
 // Contact Info Section
 const ContactInfo: React.FC<ContactInfoProps> = ({ phone, email, address }) => (
-  <div className="flex-1 mt-10 md:mt-0 md:ml-10 text-xl">
+  <div className="flex-1 bg-black shadow-lg border-gray-800 w-full h-full text-xl">
     <ContactDetail
       icon={<Phone className="text-green-400" />}
       label="Phone"
@@ -158,12 +160,12 @@ export default function ContactPage() {
   };
   return (
     <div className="bg-black">
-      <div className="flex md:flex-row flex-col justify-between items-center gap-5 bg-black shadow-lg mx-auto p-6 border-gray-800 w-11/12 md:w-10/12 text-white">
+      <div className="flex md:flex-row flex-col justify-between items-center gap-5 bg-black shadow-lg mx-auto border-gray-800 w-11/12 md:w-10/12 text-white">
         <Card className="flex-1 bg-[#1a0e26] shadow-lg p-6 border-gray-800 w-full md:w-1/2">
-          <h2 className="font-bold text-purple-400 text-3xl">
+          <h2 className="font-bold text-purple-400 text-2xl md:text-3xl">
             Lets work together!
           </h2>
-          <p className="mt-2 text-gray-400 text-xl">
+          <p className="mt-2 text-gray-400 text-base md:text-xl">
             Have a project in mind? Lets create something amazing together.
           </p>
           <form onSubmit={handleSubmit}>
@@ -216,7 +218,7 @@ export default function ContactPage() {
             />
             <Button
               type="submit"
-              className="bg-purple-600 hover:bg-purple-700 mt-4 border-none rounded-sm w-full btn"
+              className="bg-purple-600 hover:bg-purple-700 mt-4 border-none rounded-md w-full btn btn-sm md:btn-md"
               onClick={handleClick}
               // disabled={loading}
             >

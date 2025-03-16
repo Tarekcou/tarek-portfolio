@@ -24,10 +24,9 @@ const Home = () => {
   }, []);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <SearchParamsHandler onUpdate={handleScroll} />{" "}
-      {/* ✅ Handles query params separately */}
-      <div className="relative bg-[#0f0715] mx-auto overflow-hidden">
+    <>
+      <SearchParamsHandler onUpdate={handleScroll} />
+      <div className="relative !bg-[#0f0715] mx-auto overflow-hidden">
         <div className="min-h-screen">
           <Nav
             setActiveComponent={handleScroll}
@@ -60,7 +59,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </Suspense>
+    </>
   );
 };
 

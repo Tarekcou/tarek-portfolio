@@ -64,13 +64,13 @@ const MobileNav = ({
       <Sheet key={"left"}>
         <div className="flex justify-between w-full">
           <SheetTitle className="font-bold text-white text-xl">
-            <div className="flex px-2 text-2xl">
+            <div className="flex items-center gap-2 px-2 text-2xl">
               <Image
                 src="/images/logo.png"
                 alt="logo"
                 width={30}
                 height={40}
-                className="rounded-lg"
+                className="rounded-full w-6 h-6"
               />
               <h1 className="font-bold">Tarek</h1>
             </div>
@@ -93,7 +93,7 @@ const MobileNav = ({
             <SheetDescription>
               {/* Navbar */}
 
-              <div className="flex flex-col justify-start gap-5 mt-10 text-white">
+              <div className="flex flex-col justify-start gap-5 mt-10 w-full text-white">
                 {/* Navbar menu content here */}
 
                 {navMenu}

@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html data-theme="light" lang="en">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/logo.png" />
       </Head>
 
       <body className={font.className}>{children}</body>

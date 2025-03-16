@@ -16,39 +16,44 @@ const Hero = () => {
     <section className="bg-black">
       <div className="flex lg:flex-row flex-col justify-between items-center gap-5 mx-auto my-5 py-10 w-11/12 lg:w-10/12 text-white">
         {/* Left Content */}
-        <div className="flex-1">
+        <div className="flex-1 gap-2">
           <h1 className="mb-2 font-semibold text-2xl lg:text-3xl">
             I am <br></br>
-            <span className="text-4xl">{BaseInfo.name}</span>
+            <span className="text-3xl md:text-5xl">{BaseInfo.name}</span>
           </h1>
-          <h2 className="bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 font-bold text-transparent text-3xl lg:text-5xl">
+          <h2 className="bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 font-bold text-transparent text-xl lg:text-3xl">
             {BaseInfo.position}
           </h2>
-          <p className="mt-4 text-gray-400 text-base">{BaseInfo.description}</p>
-          <div className="flex gap-2 my-3">
+          <p className="mt-4 text-gray-400 text-sm md:text-base">
+            {BaseInfo.description}
+          </p>
+          <div className="flex gap-4 my-3">
             <Image
+              className="w-10 sm:w-10 md:w-12 h-10 sm:h-12 md:h-16"
               width={40}
               height={40}
               alt="react"
-              src={"/images/react.svg"}
-            ></Image>
+              src="/images/react.svg"
+            />
             <Image
+              className="bg-white w-10 sm:w-10 md:w-12 h-10 sm:h-12 md:h-16"
               width={40}
               height={40}
               alt="react"
-              className="bg-white"
               src={"/images/nextjs-icon.svg"}
             ></Image>
             <Image
               width={40}
               height={40}
               alt="react"
+              className="w-10 sm:w-10 md:w-12 h-10 sm:h-12 md:h-16"
               src={"/images/mongo.svg"}
             ></Image>
             <Image
               width={40}
               height={40}
               alt="react"
+              className="w-10 sm:w-10 md:w-12 h-10 sm:h-12 md:h-16"
               src={"/images/node.svg"}
             ></Image>
           </div>

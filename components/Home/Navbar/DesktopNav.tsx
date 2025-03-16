@@ -1,83 +1,47 @@
 "use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
-import Image from "next/image";
+const sections = [
+  "hero",
+  "about",
+  "skills",
+  "projects",
+  "services",
+  "reviews",
+  "contact",
+];
 
-const DesktopNav = ({
-  setActiveComponent,
-  activeComponent,
-}: {
-  setActiveComponent: (section: string) => void;
-  activeComponent: string;
-}) => {
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = "/resume.pdf"; // Ensure the PDF is in the public folder
-    link.download = "My_Resume.pdf";
-    link.click();
-  };
-  const navMenu = (
-    <>
-      <button
-        onClick={() => setActiveComponent("hero")}
-        className={`nav_link ${
-          activeComponent == "hero" ? "after:scale-x-100" : " "
-        }`}
-      >
-        Home
-      </button>
+const DesktopNav = () => {
+  const [activeSection, setActiveSection] = useState("hero");
 
-      <button
-        onClick={() => setActiveComponent("about")}
-        className={`nav_link ${
-          activeComponent == "about" ? "after:scale-x-100" : " "
-        }`}
-      >
-        About
-      </button>
-      <button
-        onClick={() => setActiveComponent("skills")}
-        className={`nav_link ${
-          activeComponent == "skills" ? "after:scale-x-100" : " "
-        }`}
-      >
-        Skills
-      </button>
-      <button
-        onClick={() => setActiveComponent("projects")}
-        className={`nav_link ${
-          activeComponent == "projects" ? "after:scale-x-100" : " "
-        }`}
-      >
-        Projects
-      </button>
-      <button
-        onClick={() => setActiveComponent("services")}
-        className={`nav_link ${
-          activeComponent == "services" ? "after:scale-x-100" : " "
-        }`}
-      >
-        Services
-      </button>
-      <button
-        onClick={() => setActiveComponent("reviews")}
-        className={`nav_link ${
-          activeComponent == "reviews" ? "after:scale-x-100" : " "
-        }`}
-      >
-        Reviews
-      </button>
-      <button
-        onClick={() => setActiveComponent("contact")}
-        className={`nav_link ${
-          activeComponent == "contact" ? "after:scale-x-100" : " "
-        }`}
-      >
-        Contact
-      </button>
-    </>
-  );
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+            console.log("Active Section:", entry.target.id); // Debugging log
+          }
+        });
+      },
+      { threshold: 0.3 } // Reduced from 0.6 to 0.3 for better accuracy
+    );
+
+    sections.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
 
   return (
     <div className="hidden md:flex justify-between items-center mx-auto py-5 w-11/12 md:w-10/12 text-white">
@@ -87,14 +51,35 @@ const DesktopNav = ({
           alt="logo"
           width={30}
           height={40}
-          className="rounded-lg"
+          className="rounded-full"
         />
         <h1 className="font-bold">Tarek</h1>
       </div>
-      <ul className="flex items-center gap-5 text-base nav_link">
-        {navMenu}
+      <ul className="flex items-center gap-5 text-base">
+        {sections.map((section) => (
+          <button
+            key={section}
+            onClick={() =>
+              document
+                .getElementById(section)
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className={`nav_link ${
+              activeSection === section
+                ? "after:scale-x-100 font-bold"
+                : "text-white"
+            }`}
+          >
+            {section.charAt(0).toUpperCase() + section.slice(1)}
+          </button>
+        ))}
         <Button
-          onClick={handleDownload}
+          onClick={() => {
+            const link = document.createElement("a");
+            link.href = "/resume.pdf";
+            link.download = "My_Resume.pdf";
+            link.click();
+          }}
           className="bg-white hover:bg-gray-200 rounded-xl text-blue-800 transition-all duration-200"
         >
           <Download /> Resume
