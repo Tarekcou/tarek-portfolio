@@ -1,22 +1,32 @@
 "use client";
-import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect } from "react";
 
-export default function SearchParamsHandler({
+const SearchParamsHandler = ({
   onUpdate,
 }: {
-  onUpdate: (name: string | null) => void;
-}) {
+  onUpdate: (id: string | null) => void;
+}) => {
+  return (
+    <Suspense fallback={null}>
+      <SearchParamsLogic onUpdate={onUpdate} />
+    </Suspense>
+  );
+};
+
+const SearchParamsLogic = ({
+  onUpdate,
+}: {
+  onUpdate: (id: string | null) => void;
+}) => {
   const searchParams = useSearchParams();
-  const router = useRouter();
+  const section = searchParams.get("section");
 
   useEffect(() => {
-    const name = searchParams.get("route");
-    if (name) {
-      onUpdate(name);
-      router.replace("/", { scroll: false }); // Remove query params after processing
-    }
-  }, [searchParams, onUpdate, router]);
+    if (section) onUpdate(section);
+  }, [section, onUpdate]);
 
-  return null; // This component doesn't render anything
-}
+  return null;
+};
+
+export default SearchParamsHandler;

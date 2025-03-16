@@ -1,26 +1,70 @@
 "use client";
-import React, { Suspense, useCallback, useState } from "react";
-import Nav from "./Navbar/Nav";
-import Hero from "./Hero/Hero";
-import Footer from "../Footer/Footer";
-import AboutMe from "./About/About";
-import Services from "./Services/Services";
-import MySkills from "../Myskills/MySkills";
-import ClientReviews from "./Reviews/Review";
-import ContactPage from "../Contact/Contact";
-import LatestProjects from "./Projects/LatestProject/LatestProject";
-import LatestProjectsMobile from "./Projects/LatestProject/LatestProjectMobile";
-import SearchParamsHandler from "./SearchParamsHandler"; // ✅ Import the new component
+
+import React, { useEffect, useState, useCallback } from "react";
+import dynamic from "next/dynamic";
+import SearchParamsHandler from "./SearchParamsHandler";
+
+// ✅ Dynamically import all child components with `ssr: false`
+const Nav = dynamic(() => import("./Navbar/Nav"), { ssr: false });
+const Hero = dynamic(() => import("./Hero/Hero"), { ssr: false });
+const Footer = dynamic(() => import("../Footer/Footer"), { ssr: false });
+const AboutMe = dynamic(() => import("./About/About"), { ssr: false });
+const Services = dynamic(() => import("./Services/Services"), { ssr: false });
+const MySkills = dynamic(() => import("../Myskills/MySkills"), { ssr: false });
+const ClientReviews = dynamic(() => import("./Reviews/Review"), { ssr: false });
+const ContactPage = dynamic(() => import("../Contact/Contact"), { ssr: false });
+const LatestProjects = dynamic(
+  () => import("./Projects/LatestProject/LatestProject"),
+  { ssr: false }
+);
+const LatestProjectsMobile = dynamic(
+  () => import("./Projects/LatestProject/LatestProjectMobile"),
+  { ssr: false }
+);
+
+const SECTIONS = [
+  "hero",
+  "about",
+  "skills",
+  "projects",
+  "services",
+  "reviews",
+  "contact",
+];
 
 const Home = () => {
-  const [activeComponent, setActiveComponent] = useState<string>("home"); // Default section
-  const behaviorType = activeComponent !== "home" ? "auto" : "smooth";
+  const [activeComponent, setActiveComponent] = useState("hero");
 
   const handleScroll = useCallback((id: string | null) => {
-    if (!id) return; // ✅ Ignore null values
-
-    setActiveComponent(id); // Update active section
+    if (!id) return;
+    setActiveComponent(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries.find((entry) => entry.isIntersecting);
+        if (visibleSection) {
+          setActiveComponent(visibleSection.target.id);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    SECTIONS.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      SECTIONS.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) observer.unobserve(element);
+      });
+    };
   }, []);
 
   return (
@@ -33,28 +77,22 @@ const Home = () => {
             activeComponent={activeComponent}
           />
           <div className="pt-20">
-            <Section id="hero" activeComponent={activeComponent}>
-              <Hero />
-            </Section>
-            <Section id="about" activeComponent={activeComponent}>
-              <AboutMe />
-            </Section>
-            <Section id="skills" activeComponent={activeComponent}>
-              <MySkills />
-            </Section>
-            <Section id="projects" activeComponent={activeComponent}>
-              <LatestProjects />
-              <LatestProjectsMobile />
-            </Section>
-            <Section id="services" activeComponent={activeComponent}>
-              <Services />
-            </Section>
-            <Section id="reviews" activeComponent={activeComponent}>
-              <ClientReviews />
-            </Section>
-            <Section id="contact" activeComponent={activeComponent}>
-              <ContactPage />
-            </Section>
+            {SECTIONS.map((id) => (
+              <Section key={id} id={id} activeComponent={activeComponent}>
+                {id === "hero" && <Hero />}
+                {id === "about" && <AboutMe />}
+                {id === "skills" && <MySkills />}
+                {id === "projects" && (
+                  <>
+                    <LatestProjects />
+                    <LatestProjectsMobile />
+                  </>
+                )}
+                {id === "services" && <Services />}
+                {id === "reviews" && <ClientReviews />}
+                {id === "contact" && <ContactPage />}
+              </Section>
+            ))}
             <Footer setActiveComponent={handleScroll} />
           </div>
         </div>
