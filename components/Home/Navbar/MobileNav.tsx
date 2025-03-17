@@ -24,7 +24,7 @@ const MobileNav = ({
   };
   const navMenu = (
     <>
-      <button onClick={() => setActiveComponent("hero")} className="nav_link">
+      <button onClick={() => setActiveComponent("home")} className="nav_link">
         Home
       </button>
       <button onClick={() => setActiveComponent("about")} className="nav_link">
@@ -66,7 +66,7 @@ const MobileNav = ({
           <SheetTitle className="font-bold text-white text-xl">
             <div className="flex items-center gap-2 px-2 text-2xl">
               <Image
-                src="/images/logo.png"
+                src="/favicon.ico"
                 alt="logo"
                 width={30}
                 height={40}

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
 const sections = [
-  "Home",
+  "home",
   "about",
   "skills",
   "projects",
@@ -15,7 +15,7 @@ const sections = [
 ];
 
 const DesktopNav = () => {
-  const [activeSection, setActiveSection] = useState("Home");
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,7 +47,7 @@ const DesktopNav = () => {
     <div className="hidden md:flex justify-between items-center mx-auto py-5 w-11/12 md:w-10/12 text-white">
       <div className="flex gap-2 px-2 text-2xl">
         <Image
-          src="/images/logo.png"
+          src="/favicon.ico"
           alt="logo"
           width={30}
           height={40}
@@ -55,7 +55,7 @@ const DesktopNav = () => {
         />
         <h1 className="font-bold">Tarek</h1>
       </div>
-      <ul className="flex items-center gap-5 text-base">
+      <ul className="flex items-center gap-6 text-base">
         {sections.map((section) => (
           <button
             key={section}

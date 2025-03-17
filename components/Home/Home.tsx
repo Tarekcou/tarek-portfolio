@@ -23,7 +23,7 @@ const LatestProjectsMobile = dynamic(
 );
 
 const SECTIONS = [
-  "hero",
+  "home",
   "about",
   "skills",
   "projects",
@@ -33,7 +33,7 @@ const SECTIONS = [
 ];
 
 const Home = () => {
-  const [activeComponent, setActiveComponent] = useState("hero");
+  const [activeComponent, setActiveComponent] = useState("home");
 
   const handleScroll = useCallback((id: string | null) => {
     if (!id) return;
@@ -79,7 +79,7 @@ const Home = () => {
           <div className="pt-20">
             {SECTIONS.map((id) => (
               <Section key={id} id={id} activeComponent={activeComponent}>
-                {id === "hero" && <Hero />}
+                {id === "home" && <Hero />}
                 {id === "about" && <AboutMe />}
                 {id === "skills" && <MySkills />}
                 {id === "projects" && (

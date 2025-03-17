@@ -12,7 +12,9 @@ export const metadata: Metadata = {
   title: "Shoriful Islam Portfolio",
   description: "Shoriful Islam Full Stack Developer",
   icons: {
-    icon: "/images/logo.png", // Path to your favicon in the public folder
+    icon: "/favicon.ico", // Ensure the correct file format
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
@@ -24,7 +26,7 @@ export default function RootLayout({
   return (
     <html data-theme="light" lang="en">
       <Head>
-        <link rel="icon" href="/images/logo.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <body className={font.className}>{children}</body>

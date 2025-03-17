@@ -48,7 +48,7 @@ const Footer = ({
       <nav>
         <div className="flex justify-center items-center gap-2 mx-auto px-2 text-2xl">
           <Image
-            src="/images/logo.png"
+            src="/favicon.ico"
             alt="logo"
             width={40}
             height={40}

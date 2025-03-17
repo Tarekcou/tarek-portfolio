@@ -9,3 +9,7 @@
   after:scale-x-0 hover:after:scale-x-100 after:transition after:duration-300 after:origin-right;
   }
 }
+#home {
+  position: relative;
+  z-index: 10; /* Ensure it's not being overridden */
+}
