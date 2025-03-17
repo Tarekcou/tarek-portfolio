@@ -25,7 +25,7 @@ const AboutMe = () => {
           <div className="shadow-2xl p-4 border border-gray-800 rounded-lg shacdow">
             <Skills />
           </div>
-          <div className="shadow-2xl p-4 border border-gray-800 rounded-lg">
+          <div className="shadow-2xl mx-auto p-4 md:pt-10 border border-gray-800 rounded-lg">
             <Education />
           </div>
         </div>

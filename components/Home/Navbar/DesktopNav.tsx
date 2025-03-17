@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
 const sections = [
-  "hero",
+  "Home",
   "about",
   "skills",
   "projects",
@@ -15,7 +15,7 @@ const sections = [
 ];
 
 const DesktopNav = () => {
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState("Home");
 
   useEffect(() => {
     const observer = new IntersectionObserver(

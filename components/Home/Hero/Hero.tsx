@@ -27,16 +27,16 @@ const Hero = () => {
           <p className="mt-4 text-gray-400 text-sm md:text-base">
             {BaseInfo.description}
           </p>
-          <div className="flex gap-4 my-3">
+          <div className="flex gap-4 my-5">
             <Image
-              className="w-10 sm:w-10 md:w-12 h-10 sm:h-12 md:h-16"
-              width={40}
-              height={40}
+              className="w-10 sm:w-8 md:w-10 h-10 sm:h-8 md:h-10"
+              width={30}
+              height={30}
               alt="react"
               src="/images/react.svg"
             />
             <Image
-              className="bg-white w-10 sm:w-10 md:w-12 h-10 sm:h-12 md:h-16"
+              className="bg-white w-10 sm:w-8 md:w-10 h-10 sm:h-8 md:h-10"
               width={40}
               height={40}
               alt="react"
@@ -46,14 +46,14 @@ const Hero = () => {
               width={40}
               height={40}
               alt="react"
-              className="w-10 sm:w-10 md:w-12 h-10 sm:h-12 md:h-16"
+              className="w-10 sm:w-8 md:w-10 h-10 sm:h-8 md:h-10"
               src={"/images/mongo.svg"}
             ></Image>
             <Image
               width={40}
               height={40}
               alt="react"
-              className="w-10 sm:w-10 md:w-12 h-10 sm:h-12 md:h-16"
+              className="w-10 sm:w-8 md:w-10 h-10 sm:h-8 md:h-10"
               src={"/images/node.svg"}
             ></Image>
           </div>
