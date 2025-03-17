@@ -6,7 +6,7 @@ import Skills from "./Skills";
 
 const AboutMe = () => {
   return (
-    <section className="space-y-4 bg-black mx-auto md:py-10 text-white">
+    <section className="space-y-4 bg-black mx-auto md:py-5 text-white">
       <div className="flex items-center my-5 w-full">
         <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text-white text-2xl md:text-4xl -rotate-3 transform">
           About Me

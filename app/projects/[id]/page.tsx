@@ -33,7 +33,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
           <MoveLeft /> Return to Home Page
         </h1>
       </Link>
-      <div className="space-y-3 bg-gray-800 shadow-md mx-auto mt-5 p-6 rounded-xl max-w-4xl text-white">
+      <div className="space-y-3 bg-gray-800 shadow-md mx-auto mt-5 p-6 rounded-xl max-w-4xl text-white/80">
         <h2 className="mb-4 font-bold text-2xl">{project.title}</h2>
         <Image
           src={project.image}
@@ -43,7 +43,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
           className="mb-4 rounded-md w-full h-[600px] object-cover"
         />
         <p>
-          <strong>Main Technology Stack:</strong> {project.techStack}
+          <strong>Main Technology Stack:</strong> {project.techStack.join(", ")}
         </p>
         <p>
           <strong>Description:</strong> {project.description}

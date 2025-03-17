@@ -1,8 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { motion } from "framer-motion";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-
+import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 // Swiper CSS
 import "swiper/css";
 import "swiper/css/pagination";
@@ -35,14 +35,12 @@ const LatestProjects: React.FC = () => {
           </div>
         </div>
         {/* prpjects */}
-        <div className="gap-5 grid grid-cols-1 md:grid-cols-2 w-full">
+        <div className="gap-10 grid grid-cols-1 md:grid-cols-2 w-full">
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <ProjectCard project={project} />
             </motion.div>
@@ -82,7 +80,7 @@ const LatestProjects: React.FC = () => {
         <div className="bg-red-500 divide-red-500 divide"></div>
         <Link
           href={"/allProjects"}
-          className="bg-red-500 hover:bg-red-600 mt-4 rounded-full text-white text-xl md:text-2xl btn"
+          className="bg-red-500 hover:bg-red-600 mt-4 rounded-full text-white text-base md:text-xl btn"
         >
           See All Projects
         </Link>

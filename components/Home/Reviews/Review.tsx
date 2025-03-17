@@ -10,59 +10,61 @@ import Image from "next/image";
 
 export default function ClientReviews() {
   return (
-    <div className="relative bg-black mx-auto py-12 w-11/12 md:w-10/12 text-white">
-      <div className="flex items-center my-5 w-full">
-        <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-2xl md:text-4xl -rotate-3 transform">
-          Client Reviews
-        </h2>
-      </div>
+    <div className="bg-black">
+      <div className="relative bg-black mx-auto py-12 w-11/12 md:w-10/12 text-white">
+        <div className="flex items-center my-5 w-full">
+          <h2 className="inline-block bg-blue-800 mx-auto mb-4 p-3 font-bold text- text-white text-2xl md:text-4xl -rotate-3 transform">
+            Client Reviews
+          </h2>
+        </div>
 
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        breakpoints={{
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-        className="mx-auto max-w-6xl"
-      >
-        {clientReviews.map((review, index) => (
-          <SwiperSlide key={index}>
-            <div className="bg-gray-900 shadow-lg mx-2 p-6 rounded-2xl h-[350px] text-center">
-              <p className="mb-2 text-blue-400 text-4xl">“</p>
-              <p className="mb-4 text-sm">{review.review}</p>
-              <p className="mb-2 text-blue-400 text-4xl">”</p>
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="mx-auto max-w-6xl"
+        >
+          {clientReviews.map((review, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-gray-900 shadow-lg mx-2 p-6 rounded-2xl h-[350px] text-center">
+                <p className="mb-2 text-blue-400 text-4xl">“</p>
+                <p className="mb-4 text-sm">{review.review}</p>
+                <p className="mb-2 text-blue-400 text-4xl">”</p>
 
-              <div className="flex justify-center items-center gap-2 bg-blue-700 mx-auto px-4 py-1 rounded-full w-fit">
-                <span className="font-bold text-xl">{review.rating}</span>
-                <Star className="w-4 h-4 text-yellow-400" />
-              </div>
+                <div className="flex justify-center items-center gap-2 bg-blue-700 mx-auto px-4 py-1 rounded-full w-fit">
+                  <span className="font-bold text-xl">{review.rating}</span>
+                  <Star className="w-4 h-4 text-yellow-400" />
+                </div>
 
-              <div className="flex justify-center items-center gap-4 bg-white mt-4 p-1 md:p-3 rounded-xl">
-                <Image
-                  width={10}
-                  height={10}
-                  src={review.image}
-                  alt={review.name}
-                  className="rounded-full w-10 h-10"
-                />
-                <div className="text-left">
-                  <p className="font-bold text-black text-sm md:text-xl">
-                    {review.name}
-                  </p>
-                  <p className="text-gray-600 text-xs md:text-sm">
-                    {review.profession}
-                  </p>
+                <div className="flex justify-center items-center gap-4 bg-white mt-4 p-1 md:p-3 rounded-xl">
+                  <Image
+                    width={10}
+                    height={10}
+                    src={review.image}
+                    alt={review.name}
+                    className="rounded-full w-10 h-10"
+                  />
+                  <div className="text-left">
+                    <p className="font-bold text-black text-sm md:text-xl">
+                      {review.name}
+                    </p>
+                    <p className="text-gray-600 text-xs md:text-sm">
+                      {review.profession}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 }
